@@ -8,7 +8,86 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Feature Module
+
+```shell
+export FEATURE=todo-list
+npm run ng -- g m features/feature-${FEATURE}/${FEATURE}-container
+npm run ng -- g c features/feature-${FEATURE}/${FEATURE}-container --export
+npm run ng -- g s features/feature-${FEATURE}/services/${FEATURE}-facade
+npm run ng -- g s features/feature-${FEATURE}/api/${FEATURE}-api
+```
+
+### Sub-Feature Module
+
+```shell
+export FEATURE=todo-list
+export SUB_FEATURE=todo-list-item
+npm run ng -- g m features/feature-${FEATURE}/${SUB_FEATURE}-container
+npm run ng -- g c features/feature-${FEATURE}/${SUB_FEATURE}-container --export
+npm run ng -- g s features/feature-${FEATURE}/services/${SUB_FEATURE}-facade
+npm run ng -- g s features/feature-${FEATURE}/services/${SUB_FEATURE}-api
+```
+
+### Sub-Feature UI Component
+
+```shell
+export FEATURE=todo-list
+export SUB_FEATURE=list-item
+npm run ng -- g m features/feature-${FEATURE}/components/${SUB_FEATURE}
+npm run ng -- g c features/feature-${FEATURE}/components/${SUB_FEATURE} --export
+```
+
+### Root Store Module
+
+npm run ng -- g m root-store -m app
+
+### Store Feature Module
+
+```shell
+export FEATURE=todo
+export MODULE=root-store/store-${FEATURE}/${FEATURE}-store
+
+npm run ng -- g m ${MODULE} -m root-store/root-store --flat
+npm run ng -- g feature root-store/store-${FEATURE}/${FEATURE} -a -g -m ${MODULE} --prefix load
+```
+
+### Share Component Module
+
+```shell
+export FEATURE=list-item
+npm run ng -- g m shared/modules/${FEATURE}
+npm run ng -- g c shared/modules/${FEATURE} --export
+```
+
+### Page Module
+
+```shell
+export PAGE=todo-overview
+npm run ng -- g m pages/${PAGE}-page --route ${PAGE} --routing -m app
+```
+
+### Domain Module
+
+```shell
+export DOMAIN=todos
+npm run ng -- g m modules/${DOMAIN}
+npm run ng -- g s modules/${DOMAIN}/api/${DOMAIN}-api
+npm run ng -- g s modules/${DOMAIN}/application/${DOMAIN}-facade
+npm run ng -- g class modules/${DOMAIN}/models/${DOMAIN}
+npm run ng -- g interface modules/${DOMAIN}/models/${DOMAIN}-dto
+npm run ng -- g s modules/${DOMAIN}/infra/${DOMAIN}-infra
+```
+
+### Domain Feature Module
+
+```shell
+export DOMAIN=todos
+export FEATURE=todo-details
+npm run ng -- g m modules/${DOMAIN}/features/${FEATURE}
+npm run ng -- g c modules/${DOMAIN}/features/${FEATURE} --export
+npm run ng -- g s modules/${DOMAIN}/application/${FEATURE}/${FEATURE}-facade
+```
 
 ## Build
 
