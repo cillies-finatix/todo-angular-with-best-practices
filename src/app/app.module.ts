@@ -8,7 +8,6 @@ import { RootStoreModule } from './root-store/root-store.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule, RootStoreModule],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
