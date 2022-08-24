@@ -2,7 +2,7 @@
   <ng-container *ngrxLet="items$ | async as items">
     <ul *ngIf="items?.length; else noItems">
       <li *ngFor="let item of items">
-        {{ item.title }}
+        {{ item.title }} / {{ item.done ? 'fertig' : 'offen' }}
       </li>
     </ul>
   </ng-container>

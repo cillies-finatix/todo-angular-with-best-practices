@@ -55,7 +55,7 @@ npm run ng -- g feature root-store/store-${FEATURE}/${FEATURE} -a -g -m ${MODULE
 ### Shared Component Module
 
 ```shell
-export FEATURE=list-item
+export FEATURE=count-item
 npm run ng -- g m shared/modules/${FEATURE}
 npm run ng -- g c shared/modules/${FEATURE} --export
 ```
