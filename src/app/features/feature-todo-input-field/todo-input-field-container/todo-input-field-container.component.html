@@ -1,0 +1,4 @@
+<form [formGroup]="todoForm" (ngSubmit)="onFormSubmit()">
+  <label>Todo Namen eingeben: <input formControlName="todoName" type="text"></label>
+  <button class="button success" type="submit">Erstellen</button>
+</form>

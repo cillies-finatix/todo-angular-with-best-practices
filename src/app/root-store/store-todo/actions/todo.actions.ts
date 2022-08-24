@@ -3,6 +3,10 @@ import { createAction, props } from '@ngrx/store';
 import { Todo } from '../reducers/todo.reducer';
 
 export const loadTodos = createAction('[Todo API] Load Todos');
+export const createTodo = createAction(
+  '[Todo API] Create Todo',
+  props<{ title: string }>()
+);
 export const noop = createAction('[Todo State] No operation');
 
 export const loadTodosSuccess = createAction(

@@ -1,5 +1,6 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
 
+import * as TodoInputFieldActions from '../../../features/feature-todo-input-field/actions/todo-input-field.actions';
 import * as TodoActions from '../actions/todo.actions';
 
 export const todoFeatureKey = 'todo';
@@ -7,8 +8,6 @@ export const todoFeatureKey = 'todo';
 export interface Todo {
   title: string;
   done: boolean;
-  updatedAt: string;
-  createdAt: string;
 }
 
 export interface State {
@@ -23,6 +22,17 @@ export const reducer = createReducer(
   initialState,
 
   on(TodoActions.loadTodos, (state) => state),
+  on(
+    TodoActions.createTodo,
+    TodoInputFieldActions.todoInputFormSubmitted,
+    (state, action) => ({
+      ...state,
+      todos: state.todos.concat({
+        title: action.title,
+        done: false,
+      }),
+    })
+  ),
   on(TodoActions.loadTodosSuccess, (state, action) => ({
     ...state,
     todos: action.data,

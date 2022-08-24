@@ -11,7 +11,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 ### Feature Module
 
 ```shell
-export FEATURE=todo-list
+export FEATURE=todo-input-field
 npm run ng -- g m features/feature-${FEATURE}/${FEATURE}-container
 npm run ng -- g c features/feature-${FEATURE}/${FEATURE}-container --export
 npm run ng -- g s features/feature-${FEATURE}/services/${FEATURE}-facade
@@ -52,7 +52,7 @@ npm run ng -- g m ${MODULE} -m root-store/root-store --flat
 npm run ng -- g feature root-store/store-${FEATURE}/${FEATURE} -a -g -m ${MODULE} --prefix load
 ```
 
-### Share Component Module
+### Shared Component Module
 
 ```shell
 export FEATURE=list-item

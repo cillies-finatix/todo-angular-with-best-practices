@@ -1,0 +1,12 @@
+<section>
+  <ng-container *ngrxLet="items$ | async as items">
+    <ul *ngIf="items?.length; else noItems">
+      <li *ngFor="let item of items">
+        {{ item.title }}
+      </li>
+    </ul>
+  </ng-container>
+  <ng-template #noItems>
+    <span>Keine Todos vorhanden.</span>
+  </ng-template>
+</section>
