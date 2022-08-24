@@ -1,20 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Todo } from 'src/app/root-store/store-todo/reducers/todo.reducer';
-import { selectTodos } from 'src/app/root-store/store-todo/selectors/todo.selectors';
+
+import { TodoListFacadeService } from '../services/todo-list-facade.service';
 
 @Component({
   selector: 'app-todo-list-container',
   templateUrl: './todo-list-container.component.html',
   styleUrls: ['./todo-list-container.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoListContainerComponent implements OnInit {
-  items$: Observable<Todo[]>;
+  items$: Observable<Todo[]> = this.facade.items$;
 
-  constructor(private readonly store: Store) {
-    this.items$ = this.store.select(selectTodos);
-  }
+  constructor(private readonly facade: TodoListFacadeService) {}
 
   ngOnInit(): void {}
 }

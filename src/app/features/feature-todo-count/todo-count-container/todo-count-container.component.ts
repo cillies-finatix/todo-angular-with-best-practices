@@ -1,19 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { selectTodosCount } from 'src/app/root-store/store-todo/selectors/todo.selectors';
+
+import { TodoCountFacadeService } from '../services/todo-count-facade.service';
 
 @Component({
   selector: 'app-todo-count-container',
   templateUrl: './todo-count-container.component.html',
   styleUrls: ['./todo-count-container.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoCountContainerComponent implements OnInit {
-  count$: Observable<number>;
-
-  constructor(private readonly store: Store) {
-    this.count$ = this.store.select(selectTodosCount);
-  }
-
+  count$: Observable<number> = this.facade.count$;
+  constructor(private readonly facade: TodoCountFacadeService) {}
   ngOnInit(): void {}
 }

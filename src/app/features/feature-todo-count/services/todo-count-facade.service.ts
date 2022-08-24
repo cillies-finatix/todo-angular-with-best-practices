@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { selectTodosCount } from 'src/app/root-store/store-todo/selectors/todo.selectors';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TodoCountFacadeService {
-
-  constructor() { }
+  count$: Observable<number> = this.store.select(selectTodosCount);
+  constructor(private readonly store: Store) {}
 }

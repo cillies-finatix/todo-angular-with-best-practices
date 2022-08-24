@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+import { todoInputFormSubmitted } from '../actions/todo-input-field.actions';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TodoInputFieldFacadeService {
+  constructor(private readonly store: Store) {}
 
-  constructor() { }
+  todoInputFormSubmitted(title: string): void {
+    this.store.dispatch(todoInputFormSubmitted({ title }));
+  }
 }
