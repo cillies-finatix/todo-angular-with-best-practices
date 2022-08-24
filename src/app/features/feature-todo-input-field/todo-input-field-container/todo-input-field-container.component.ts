@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { TodoInputFieldFacadeService } from '../services/todo-input-field-facade.service';
 
@@ -14,14 +14,16 @@ export class TodoInputFieldContainerComponent implements OnInit {
 
   constructor(private readonly facade: TodoInputFieldFacadeService) {
     this.todoForm = new FormGroup({
-      todoName: new FormControl(''),
+      todoName: new FormControl('', [Validators.required]),
     });
   }
 
   ngOnInit(): void {}
 
   onFormSubmit(): void {
-    this.facade.todoInputFormSubmitted(this.todoForm.value.todoName);
-    this.todoForm.reset();
+    if (this.todoForm.valid) {
+      this.facade.todoInputFormSubmitted(this.todoForm.value.todoName);
+      this.todoForm.reset();
+    }
   }
 }
