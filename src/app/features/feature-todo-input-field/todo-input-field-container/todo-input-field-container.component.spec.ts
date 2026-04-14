@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { TodoInputFieldContainerComponent } from './todo-input-field-container.component';
+import { provideTodoMockStore } from '../../../../test/ngrx-todo-mock-store';
 
 describe('TodoInputFieldContainerComponent', () => {
   let component: TodoInputFieldContainerComponent;
@@ -8,7 +8,8 @@ describe('TodoInputFieldContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TodoInputFieldContainerComponent ]
+      imports: [TodoInputFieldContainerComponent],
+      providers: [provideTodoMockStore()],
     })
     .compileComponents();
 

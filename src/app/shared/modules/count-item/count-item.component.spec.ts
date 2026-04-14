@@ -8,7 +8,7 @@ describe('CountItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CountItemComponent ]
+      imports: [CountItemComponent],
     })
     .compileComponents();
 
