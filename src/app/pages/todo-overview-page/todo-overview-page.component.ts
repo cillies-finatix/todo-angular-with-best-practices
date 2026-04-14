@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-todo-overview-page',
-  templateUrl: './todo-overview-page.component.html',
-  styleUrls: ['./todo-overview-page.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-todo-overview-page',
+    templateUrl: './todo-overview-page.component.html',
+    styleUrls: ['./todo-overview-page.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class TodoOverviewPageComponent implements OnInit {
   constructor() {}
