@@ -1,12 +1,15 @@
 <section>
   <ng-container *ngrxLet="items$ | async as items">
-    <ul *ngIf="items?.length; else noItems">
-      <li *ngFor="let item of items">
-        {{ item.title }} / {{ item.done ? 'fertig' : 'offen' }}
-      </li>
-    </ul>
+    @if (items?.length) {
+      <ul>
+        @for (item of items; track item) {
+          <li>
+            {{ item.title }} / {{ item.done ? 'fertig' : 'offen' }}
+          </li>
+        }
+      </ul>
+    } @else {
+      <span>Keine Todos vorhanden.</span>
+    }
   </ng-container>
-  <ng-template #noItems>
-    <span>Keine Todos vorhanden.</span>
-  </ng-template>
 </section>
