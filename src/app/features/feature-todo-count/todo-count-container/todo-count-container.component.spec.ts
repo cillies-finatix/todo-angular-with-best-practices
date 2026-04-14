@@ -8,7 +8,7 @@ describe('TodoCountContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TodoCountContainerComponent ]
+      imports: [TodoCountContainerComponent],
     })
     .compileComponents();
 

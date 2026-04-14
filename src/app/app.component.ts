@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { Store } from '@ngrx/store';
 
 import { appComponentInitialized } from './app.actions';
@@ -8,7 +9,8 @@ import { appComponentInitialized } from './app.actions';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+    standalone: true,
+    imports: [RouterOutlet],
 })
 export class AppComponent implements OnInit {
   title = 'todo-angular-with-best-practices';

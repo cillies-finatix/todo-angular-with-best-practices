@@ -10,7 +10,7 @@ import {
     templateUrl: './count-item.component.html',
     styleUrls: ['./count-item.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+    standalone: true
 })
 export class CountItemComponent implements OnInit {
   @Input() count?: number | null;

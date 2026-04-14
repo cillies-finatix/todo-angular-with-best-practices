@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { TodoInputFieldFacadeService } from '../services/todo-input-field-facade.service';
@@ -8,7 +9,8 @@ import { TodoInputFieldFacadeService } from '../services/todo-input-field-facade
     templateUrl: './todo-input-field-container.component.html',
     styleUrls: ['./todo-input-field-container.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+    standalone: true,
+    imports: [ReactiveFormsModule],
 })
 export class TodoInputFieldContainerComponent implements OnInit {
   todoForm: FormGroup;

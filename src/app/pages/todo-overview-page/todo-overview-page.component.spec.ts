@@ -1,5 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { TodoInputFieldContainerComponent } from '../../features/feature-todo-input-field/todo-input-field-container/todo-input-field-container.component';
+import { TodoCountContainerComponent } from '../../features/feature-todo-count/todo-count-container/todo-count-container.component';
+import { TodoListContainerComponent } from '../../features/feature-todo-list/todo-list-container/todo-list-container.component';
 import { TodoOverviewPageComponent } from './todo-overview-page.component';
 
 describe('TodoOverviewPageComponent', () => {
@@ -8,7 +11,12 @@ describe('TodoOverviewPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TodoOverviewPageComponent ]
+      imports: [
+        TodoOverviewPageComponent,
+        TodoInputFieldContainerComponent,
+        TodoCountContainerComponent,
+        TodoListContainerComponent,
+      ],
     })
     .compileComponents();
 

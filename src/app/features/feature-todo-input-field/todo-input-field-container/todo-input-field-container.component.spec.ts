@@ -8,7 +8,7 @@ describe('TodoInputFieldContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TodoInputFieldContainerComponent ]
+      imports: [TodoInputFieldContainerComponent],
     })
     .compileComponents();
 
