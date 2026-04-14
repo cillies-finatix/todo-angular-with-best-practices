@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { TodoListContainerComponent } from './todo-list-container.component';
+import { provideTodoMockStore } from '../../../../test/ngrx-todo-mock-store';
 
 describe('TodoListContainerComponent', () => {
   let component: TodoListContainerComponent;
@@ -9,6 +9,7 @@ describe('TodoListContainerComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [TodoListContainerComponent],
+      providers: [provideTodoMockStore()],
     })
     .compileComponents();
 

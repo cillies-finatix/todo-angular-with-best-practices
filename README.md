@@ -1,6 +1,6 @@
 # TodoAngularWithBestPractices
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.3.
+This project uses [Angular CLI](https://github.com/angular/angular-cli) **21.x** (Node **20 LTS** recommended; see `.nvmrc`).
 
 ## Development server
 
@@ -95,7 +95,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `npm test` (watch) or `npm run test:ci` (single run, CI) to execute unit tests via [Vitest](https://vitest.dev/) with [`@analogjs/vite-plugin-angular`](https://github.com/analogjs/analog).
 
 ## Running end-to-end tests
 
